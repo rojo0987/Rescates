@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonixx Rescates</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="imagenes/pata.png" alt="Bonixx" class="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="index.html" class="btn btn-outline-primary me-2 nav-bold">Inicio</a>
+          </li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="adopta.html" class="btn custom-btn me-2">Adopta</a>
+          <a href="donation.html" class="btn custom-btn">Dona</a>
+          <a href="carrito.html" class="btn btn-outline-secondary">
+            <img src="imagenes/CARROT.png" alt="Carrito" style="width: 20px; height: 20px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .custom-card {
+      background-color: #A2DCEE;
+      border: none; /* Elimina los bordes por defecto */
+      border-radius: 10px; /* Bordes redondeados opcionales */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave opcional */
+    }
+        .navbar {
+      background-color: transparent !important; /* Transparente por defecto */
+      transition: background-color 0.3s ease; /* Transición suave entre colores */
+    }
+
+    /* Navbar cuando está colapsado (modo responsivo) */
+    .navbar.collapsed {
+      background-color: rgb(86, 226, 226) !important; /* Fondo blanco cuando es responsivo */
+      box-shadow: 0 4px 6px rgb(255, 255, 255); /* Sombra ligera para resaltar */
+    }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  margin: 0; 
+}
+
+    header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        padding-bottom: 50px;
+    }
+    .card {
+      border-radius: 10px; /* Bordes redondeados opcionales */
+      background-color: #A2DCEE;
+    width: 200px; 
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.card .image {
+    width: 180px;
+    height: 180px; 
+    margin: 0 auto;
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px; 
+    transition: opacity 0.3s ease-in-out; 
+}
+
+.card .image.default {
+    opacity: 1;
+    position: relative;
+}
+
+.card .image.hover {
+    opacity: 0;
+    position: absolute;
+}
+
+.card:hover .image.default {
+    opacity: 0;
+}
+
+.card:hover .image.hover {
+    opacity: 1;
+}
+
+
+  
+    .card .info {
+        color: black;
+        padding: 10px;
+        background-color: #9A9CEA;
+        border-radius: 8px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .card p {
+        color: #555;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .card .price {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+ 
+    .card button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .card button:hover {
+        background-color: #218838;
+    }
+
+
+    .cart {
+        position: fixed;
+        right: 10px;
+        top: 20%;
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        width: 300px;
+    }
+
+    .cart h3 {
+        margin-top: 0;
+    }
+
+    .cart-items {
+        max-height: 300px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .cart-item button {
+        background-color: #dc3545;
+    }
+
+    .cart-footer {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+    main {
+  flex: 1; 
+}
+.custom-card .card-title {
+      font-weight: bold; /* Hace el título más destacado */
+    }
+
+   .footer {
+  background-color: #1e2a32;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+}
+
+.social-media a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-media a:hover {
+  border: 3px solid transparent;
+}
+
+.social-media a.facebook:hover {
+  border-color: #3b5998;
+}
+
+.social-media a.instagram:hover {
+  border-color: #9b59b6;
+}
+
+.social-media a.linkedin:hover {
+  border-color: #0077b5;
+}
+
+.social-media a.youtube:hover {
+  border-color: #ff0000;
+}
+
+.social-media a.vimeo:hover {
+  border-color: #1ab7ea;
+}
+
+.footer-bottom {
+  background-color: #1c262f;
+  padding: 10px;
+  color: #bbb;
+  font-size: 14px;
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+#cartContainer {
+    width: 300px;
+    height: auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease; /* Animación suave */
+    overflow: hidden;
+}
+
+#cartContainer.hidden {
+    width: 50px; /* Tamaño reducido */
+    height: 50px; /* Tamaño reducido */
+    padding: 5px;
+    border-radius: 50%; /* Convertir a círculo */
+    text-align: center;
+}
+
+#cartContainer.hidden h3,
+#cartContainer.hidden .cart-items,
+#cartContainer.hidden .cart-footer {
+    display: none; /* Oculta contenido interno */
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>Carrito de Compras</h1>
+</header>
+
+<div class="container">
+
+<div class="card" data-id="1" data-name="Camas Tipo Sofá" data-price="65">
+
+    <div class="image default" style="background-image: url('imagenes/Camita2.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/Camita.jpg');"></div>
+    <div class="info">
+        <h3>Camas Tipo Sofá</h3>
+        <p>Colores personalizables. Escríbenos a nuestro WhatsApp para cotizar la tuya.</p>
+        <p class="price">65.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+
+<div class="card" data-id="2" data-name="Cobija Sencilla" data-price="25">
+    <div class="image default" style="background-image: url('imagenes/Toallita1.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/Toallita2.jpg');"></div>
+    <div class="info">
+        <h3>Cobija Sencilla</h3>
+        <p>una cobija suave y abrigadora que le 
+        brindará todo el calor de hogar que necesita</p>
+        <p class="price">25.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+<div class="card" data-id="3" data-name="Tapete Absorbente" data-price="40">
+    <div class="image default" style="background-image: url('imagenes/Tapete.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/Tapete2.jpg');"></div>
+    <div class="info">
+        <h3>Tapete Absorbente</h3>
+        <p>Tapete súper absorbente 56 x 58 cm 
+            con adhesivo en esquinas para su fijación.</p>
+        <p class="price">40.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+<div class="card" data-id="4" data-name="Cama cojín" data-price="28">
+    <div class="image default" style="background-image: url('imagenes/Cobija.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/Cobija2.jpg');"></div>
+    <div class="info">
+        <h3>Cama cojín</h3>
+        <p>Cama ideal para: gatos, razas mini, pinscher, 
+            yorksire, shih tzu mini, pomerania, Chihuahua y similares.</p>
+        <p class="price">28.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+
+<div class="card" data-id="5" data-name="Enterizo" data-price="52">
+    <div class="image default" style="background-image: url('imagenes/Enterizo.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/Enterizo2.jpg');"></div>
+    <div class="info">
+        <h3>Enterizo</h3>
+        <p>prendas para recuperación de mascotas.</p>
+        <p class="price">52.00 bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+<div class="card" data-id="1" data-name="Galletas para gatos" data-price="20">
+    <div class="image default" style="background-image: url('imagenes/galleta.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/galleta2.jpg');"></div>
+    <div class="info">
+        <h3>Galletas para gatos</h3>
+        <p>Deliciosas GALLETAS blandas para gatos con sabores variados.</p>
+        <p class="price">20.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+
+<div class="card" data-id="2" data-name="Galletas Horneadas Pollo" data-price="25">
+    <div class="image default" style="background-image: url('imagenes/22.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/image\ 23.jpg');"></div>
+    <div class="info">
+        <h3>Galletas Horneadas Pollo</h3>
+        <p>Las galletas de tocineta y fresa de 4Hunters son premios ideales para tu perro y gato.</p>
+        <p class="price">25.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+
+<div class="card" data-id="3" data-name="Fuente eléctrica de agua botellón" data-price="220">
+    <div class="image default" style="background-image: url('imagenes/cero.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/cero1.jpg');"></div>
+    <div class="info">
+        <h3>Fuente eléctrica de agua botellón</h3>
+        <p>Es bien simple, les atrae el movimiento del agua.</p>
+        <p class="price">220.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+
+<div class="card" data-id="4" data-name="Pechera reflectiva con correa" data-price="118">
+    <div class="image default" style="background-image: url('imagenes/pechera.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/pechera1.jpg');"></div>
+    <div class="info">
+        <h3>Pechera reflectiva con correa</h3>
+        <p>Arnés para perro, de material muy fino, ergonómico y transpirable. </p>
+        <p class="price">118.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+
+
+<div class="card" data-id="5" data-name="Cepillo doble" data-price="12">
+    <div class="image default" style="background-image: url('imagenes/Cepillo.jpg');"></div>
+    <div class="image hover" style="background-image: url('imagenes/Cepillo1.jpg');"></div>
+    <div class="info">
+        <h3>Cepillo doble</h3>
+        <p>Cepillo para Quitar el Pelo Muerto, aseo para Mascotas de Perros y Gatos.</p>
+        <p class="price">12.00 Bs</p>
+        <button onclick="addToCart(event)">Agregar al carrito</button>
+    </div>
+</div>
+</div>
+<div class="cart" id="cartContainer">
+  <h3>Carrito</h3>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+      <span>Total: Bs<span id="totalPrice">0</span></span>
+      <button onclick="checkout()">Comprar</button>
+      <button id="hideCartButton" onclick="hideCart()" class="btn btn-primary">Ocultar Carrito</button>
+  </div>
+</div>
+<button id="showCartButton" onclick="showCart()" class="btn btn-secondary" style="display: none;">Mostrar Carrito</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+<script>
+
+const cart = [];
+
+
+function addToCart(event) {
+    const card = event.target.closest('.card');
+    const id = card.getAttribute('data-id');
+    const name = card.getAttribute('data-name');
+    const price = parseFloat(card.getAttribute('data-price'));
+
+    const item = { id, name, price };
+    cart.push(item);
+    updateCart();
+}
+function toggleCart() {
+    const cartContainer = document.getElementById('cartContainer');
+    const toggleButton = document.getElementById('toggleCartButton');
+
+    if (cartContainer.classList.contains('hidden')) {
+        // Si el carrito está oculto, mostrarlo
+        cartContainer.classList.remove('hidden');
+        toggleButton.textContent = 'Ocultar Carrito';
+    } else {
+        // Si el carrito está visible, ocultarlo
+        cartContainer.classList.add('hidden');
+        toggleButton.textContent = 'Mostrar Carrito';
+    }
+}
+function hideCart() {
+    const cartContainer = document.getElementById('cartContainer');
+    const hideButton = document.getElementById('hideCartButton');
+    const showButton = document.getElementById('showCartButton');
+
+    // Oculta el carrito y muestra el botón "Mostrar"
+    cartContainer.classList.add('hidden');
+    hideButton.style.display = 'none';
+    showButton.style.display = 'inline-block';
+}
+
+function showCart() {
+    const cartContainer = document.getElementById('cartContainer');
+    const hideButton = document.getElementById('hideCartButton');
+    const showButton = document.getElementById('showCartButton');
+
+    // Muestra el carrito y oculta el botón "Mostrar"
+    cartContainer.classList.remove('hidden');
+    hideButton.style.display = 'inline-block';
+    showButton.style.display = 'none';
+}
+
+function removeFromCart(id) {
+    const index = cart.findIndex(item => item.id === id);
+    if (index !== -1) {
+        cart.splice(index, 1);
+        updateCart();
+    }
+}
+
+
+function updateCart() {
+    const cartItems = document.getElementById('cartItems');
+    const totalPrice = document.getElementById('totalPrice');
+
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <span>${item.name} - Bs${item.price.toFixed(2)}</span>
+            <button onclick="removeFromCart('${item.id}')">Eliminar</button>
+        `;
+        cartItems.appendChild(cartItem);
+        total += item.price;
+    });
+
+    totalPrice.textContent = total.toFixed(2);
+}
+function checkout() {
+    if (cart.length === 0) {
+        alert('El carrito está vacío');
+    } else {
+        alert('¡Compra realizada con éxito!');
+        cart.length = 0; 
+        updateCart();
+    }
+}
+</script>
+<footer class="footer">
+    <div class="footer-content">
+      <div class="social-media">
+        <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="https://youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://vimeo.com" target="_blank" class="vimeo"><i class="fab fa-vimeo"></i></a>
+      </div>              
+    <div class="footer-bottom">
+      <p>Salvar a un animal no cambiará el mundo. Pero el mundo habrá cambiado para ese animal</p>
+    </div>
+  </footer>
+</body>
+</html>
